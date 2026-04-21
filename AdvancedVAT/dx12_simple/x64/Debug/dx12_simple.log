@@ -1,0 +1,44 @@
+﻿  compilation object save succeeded; see C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\bokeh_ps.cso
+  compilation object save succeeded; see C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\coloured_ps.cso
+  compilation object save succeeded; see C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\constant_vs.cso
+  compilation object save succeeded; see C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\copyback_ps.cso
+  compilation object save succeeded; see C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\copyback_vs.cso
+  compilation object save succeeded; see C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\gaussian_ps.cso
+  compilation object save succeeded; see C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\lighting_ps.cso
+  compilation object save succeeded; see C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\lighting_vs.cso
+  compilation object save succeeded; see C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\lines_vs.cso
+  compilation object save succeeded; see C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\coloured_vs.cso
+  compilation object save succeeded; see C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\normalMap_ps.cso
+  compilation object save succeeded; see C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\normalMap_vs.cso
+  compilation object save succeeded; see C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\specular_mrt_ps.cso
+  compilation object save succeeded; see C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\toon_ps.cso
+  compilation object save succeeded; see C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\toon_vs.cso
+  compilation object save succeeded; see C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\vat_vs.cso
+  compilation object save succeeded; see C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\constant_ps.cso
+  stdafx.cpp
+  imgui_impl_dx12.cpp
+  imgui_impl_win32.cpp
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  コードを生成中...
+  scene_draw.cpp
+  scene_resources.cpp
+  scene.cpp
+  scene_util.cpp
+  camera.cpp
+  dx12_imgui.cpp
+  dx12_util.cpp
+  fbx_load.cpp
+  offscreen.cpp
+  primitive.cpp
+  root_signature.cpp
+  shader.cpp
+  shadow.cpp
+  texture.cpp
+  win_main.cpp
+  VAT_demo.cpp
+  コードを生成中...
+  dx12_simple.vcxproj -> C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\dx12_simple.exe

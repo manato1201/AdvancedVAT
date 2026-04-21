@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\dx12_simple.exe</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\bokeh_ps.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\coloured_ps.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\constant_vs.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\copyback_ps.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\copyback_vs.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\gaussian_ps.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\lighting_ps.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\lighting_vs.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\lines_vs.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\coloured_vs.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\normalMap_ps.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\normalMap_vs.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\specular_mrt_ps.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\toon_ps.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\toon_vs.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\vat_vs.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\matuu\Downloads\VATchallengeprogram\x64\Debug\constant_ps.cso</FullPath>
+    </ContentFile>
+  </ContentFiles>
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

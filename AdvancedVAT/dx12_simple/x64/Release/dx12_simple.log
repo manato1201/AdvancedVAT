@@ -1,0 +1,34 @@
+﻿  compilation object save succeeded; see C:\Users\matuu\Desktop\Portfolio\VATChallengeProgram\x64\Release\copyback_ps.cso
+  compilation object save succeeded; see C:\Users\matuu\Desktop\Portfolio\VATChallengeProgram\x64\Release\copyback_vs.cso
+  compilation object save succeeded; see C:\Users\matuu\Desktop\Portfolio\VATChallengeProgram\x64\Release\lighting_ps.cso
+  compilation object save succeeded; see C:\Users\matuu\Desktop\Portfolio\VATChallengeProgram\x64\Release\lighting_vs.cso
+  compilation object save succeeded; see C:\Users\matuu\Desktop\Portfolio\VATChallengeProgram\x64\Release\vat_vs.cso
+  stdafx.cpp
+  imgui_impl_dx12.cpp
+  imgui_impl_win32.cpp
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  scene_draw.cpp
+  scene_resources.cpp
+  scene.cpp
+  scene_util.cpp
+  camera.cpp
+  dx12_imgui.cpp
+  dx12_util.cpp
+  fbx_load.cpp
+  offscreen.cpp
+  primitive.cpp
+  root_signature.cpp
+  shader.cpp
+  shadow.cpp
+  texture.cpp
+  win_main.cpp
+  VAT_demo.cpp
+  コード生成しています。
+  Previous IPDB not found, fall back to full compilation.
+  All 3433 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  コード生成が終了しました。
+  dx12_simple.vcxproj -> C:\Users\matuu\Desktop\Portfolio\VATChallengeProgram\x64\Release\dx12_simple.exe

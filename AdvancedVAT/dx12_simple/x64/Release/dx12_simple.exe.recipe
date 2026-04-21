@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>C:\Users\matuu\Desktop\Portfolio\VATChallengeProgram\x64\Release\dx12_simple.exe</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>C:\Users\matuu\Desktop\Portfolio\VATChallengeProgram\x64\Release\copyback_ps.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\matuu\Desktop\Portfolio\VATChallengeProgram\x64\Release\copyback_vs.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\matuu\Desktop\Portfolio\VATChallengeProgram\x64\Release\lighting_ps.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\matuu\Desktop\Portfolio\VATChallengeProgram\x64\Release\lighting_vs.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\matuu\Desktop\Portfolio\VATChallengeProgram\x64\Release\vat_vs.cso</FullPath>
+    </ContentFile>
+  </ContentFiles>
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>
