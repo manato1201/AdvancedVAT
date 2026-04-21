@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AdvancedVAT Portfolio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Noto+Sans+JP:wght@400;700;900&display=swap');
+  :root {
+    --bg:#0d0f14; --panel:#14181f; --border:#2a3040;
+    --accent:#c8a84b; --accent2:#4bc8a8; --accent3:#c84b6a;
+    --text:#d4cfc7; --muted:#7a7a8a; --code-bg:#0a0c10;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:13px;line-height:1.7;}
+  .slides{width:100%;}
+  .slide{width:960px;min-height:540px;margin:0 auto 48px;background:var(--panel);border:1px solid var(--border);position:relative;overflow:hidden;}
+  .slide-header{display:flex;align-items:flex-start;justify-content:space-between;padding:18px 28px 12px;border-bottom:1px solid var(--border);}
+  .title-block .title{font-size:22px;font-weight:900;color:#fff;letter-spacing:-.5px;text-decoration:underline;text-underline-offset:3px;}
+  .title-block .subtitle{font-size:11px;color:var(--muted);margin-top:3px;}
+  .meta{text-align:right;font-size:11px;color:var(--muted);line-height:1.8;}
+  .meta-icons{display:flex;gap:6px;justify-content:flex-end;margin-bottom:4px;}
+  .lang-badge{display:inline-block;width:22px;height:22px;border-radius:4px;font-size:9px;line-height:22px;text-align:center;font-weight:700;color:#fff;}
+  .lang-cpp{background:#004482;} .lang-hlsl{background:#1a4a7a;} .lang-vs{background:#5C2D91;}
+  .section-label{display:inline-block;background:var(--accent);color:#0d0f14;font-weight:700;font-size:13px;padding:5px 18px;margin:18px 28px;}
+  .content{padding:0 28px 28px;}
+  .decision-title{font-size:12.5px;font-weight:700;color:#fff;margin-bottom:10px;padding-left:10px;border-left:3px solid var(--accent);}
+  .card{background:#1a1f2a;border:1px solid var(--border);padding:14px 16px;}
+  .card-title{font-size:12px;font-weight:700;color:#fff;margin-bottom:6px;}
+  .card-body{font-size:11.5px;color:var(--text);line-height:1.75;}
+  .divider{height:1px;background:var(--border);margin:14px 0;}
+  .fn{color:#d2a8ff;font-family:'Share Tech Mono',monospace;font-size:11px;}
+  .kw{color:#4bc8a8;font-weight:700;}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  pre{background:var(--code-bg);border:1px solid #1e2535;padding:14px 16px;font-family:'Share Tech Mono',monospace;font-size:11px;line-height:1.7;overflow-x:auto;white-space:pre;color:#c9d1d9;}
+  .c-kw{color:#ff7b72;} .c-fn{color:#d2a8ff;} .c-str{color:#a5d6ff;} .c-cmt{color:#8b949e;font-style:italic;} .c-num{color:#79c0ff;} .c-hl{background:#2a3040;display:block;}
+  .script-label{font-size:11px;font-weight:700;color:var(--accent);font-family:'Share Tech Mono',monospace;margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+  .script-label::after{content:'';flex:1;height:1px;background:var(--border);}
+  .script-comment{font-size:11px;color:var(--muted);margin-bottom:6px;padding-left:4px;border-left:2px solid var(--accent);}
+  .script-section{margin-bottom:20px;}
+  .page-num{position:absolute;bottom:10px;right:18px;font-size:10px;color:var(--muted);font-family:'Share Tech Mono',monospace;}
+</style>
+</head>
+<body>
+<div class="slides">
+
+<!-- ===== PAGE 1: 概要 ===== -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="title-block">
+      <div class="title">AdvancedVAT</div>
+      <div class="subtitle">音声入力を用いたリアルタイム頂点アニメーション表現の探求</div>
+    </div>
+    <div class="meta">
+      <div class="meta-icons">
+        <span class="lang-badge lang-cpp">C++</span>
+        <span class="lang-badge lang-hlsl">HLSL</span>
+        <span class="lang-badge lang-vs">VS</span>
+      </div>
+      制作期間：約1ヶ月<br>
+      制作時期：2025/12〜2026/01<br>
+      個人制作
+    </div>
+  </div>
+
+  <div class="section-label">概要</div>
+
+  <div class="content">
+    <div class="grid-2" style="margin-bottom:14px;">
+      <div class="card">
+        <div class="card-title">どんな作品</div>
+        <div class="card-body">
+          DirectX 12 環境で VAT（Vertex Animation Texture）による頂点変形を実装し、
+          マイク音声をリアルタイム解析することで波形アニメーションを制御する映像表現の検証作品。
+          音量が振幅に、ピッチが波の速度に対応し、発声中のみディザリングとHSVレインボーが発動する。
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">なぜ作った？</div>
+        <div class="card-body">
+          流体シミュレーションをゲームに活用したいという動機から出発。
+          負荷の高い流体計算の代替として VAT ＋ ディザリングで似た映像効果が得られると仮説を立て、
+          さらに JunkShooting で培った音声経験を組み合わせることで
+          「音で動く流体表現」というプロシージャルな映像体験を目指した。
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">技術スタック</div>
+      <div class="card-body" style="font-family:'Share Tech Mono',monospace;font-size:11px;line-height:2;">
+        DirectX 12 &nbsp;|&nbsp; HLSL (vs_5_0 / ps_5_0) &nbsp;|&nbsp; WinMM（マイク入力）&nbsp;|&nbsp;
+        VAT テクスチャ（RGBA_Float）&nbsp;|&nbsp; HSV 変換 &nbsp;|&nbsp; 格子ディザリング（clip()）
+      </div>
+    </div>
+  </div>
+  <div class="page-num">1 / 4</div>
+</div>
+
+<!-- ===== PAGE 2: 技術選択の経緯① ===== -->
+<div class="slide" style="min-height:600px;">
+  <div class="slide-header">
+    <div class="title-block">
+      <div class="title">AdvancedVAT</div>
+      <div class="subtitle">音声入力を用いたリアルタイム頂点アニメーション表現の探求</div>
+    </div>
+    <div class="meta">
+      <div class="meta-icons">
+        <span class="lang-badge lang-cpp">C++</span>
+        <span class="lang-badge lang-hlsl">HLSL</span>
+        <span class="lang-badge lang-vs">VS</span>
+      </div>
+      制作期間：約1ヶ月<br>
+      制作時期：2025/12〜2026/01<br>
+      個人制作
+    </div>
+  </div>
+
+  <div class="section-label">技術選択の経緯</div>
+
+  <div class="content">
+    <div class="decision-title" style="margin-bottom:12px;">① 流体シミュレーション → なぜ「VAT ＋ ディザリング」で代替したのか</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1px 1fr;gap:0 14px;align-items:start;">
+
+      <!-- 左：発想の変遷フロー -->
+      <div>
+        <div style="font-size:10px;color:var(--muted);margin-bottom:6px;letter-spacing:.5px;">発想の変遷</div>
+        <svg width="100%" viewBox="0 0 400 340" style="display:block;">
+          <defs>
+            <marker id="a1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+          </defs>
+
+          <!-- 出発点：流体シミュレーション -->
+          <rect x="0" y="0" width="380" height="52" rx="6" fill="#1e1a2a" stroke="#3a3060" stroke-width="0.5"/>
+          <text x="12" y="18" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#c8a84b">動機</text>
+          <text x="12" y="34" font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#e0dbd5">流体シミュレーションをゲームに活用したい</text>
+          <text x="12" y="49" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#9a8aaa">波・液体の映像表現でリアルなゲームを作りたかった</text>
+
+          <!-- ↓ 壁 -->
+          <line x1="190" y1="52" x2="190" y2="76" stroke="#5a3a3a" stroke-width="1" marker-end="url(#a1)"/>
+          <rect x="80" y="58" width="220" height="14" rx="3" fill="#2a1a1a"/>
+          <text x="190" y="69" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#c84b6a">GPU負荷が高く自分のPCでも動作が厳しい</text>
+
+          <!-- 断念ボックス -->
+          <rect x="0" y="78" width="380" height="40" rx="6" fill="#2a1a1a" stroke="#5a3030" stroke-width="0.5"/>
+          <text x="190" y="96" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#e0dbd5">流体シミュレーション → リアルタイムゲームと相性が悪い</text>
+          <text x="190" y="111" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#8a6a6a">フルシミュレーションは断念</text>
+
+          <!-- ↓ 授業きっかけ -->
+          <line x1="190" y1="118" x2="190" y2="146" stroke="#5a5a6a" stroke-width="1" marker-end="url(#a1)"/>
+          <rect x="50" y="123" width="280" height="19" rx="3" fill="#1a1e2a"/>
+          <text x="190" y="136" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#6ab0e0">授業でVAT・HLSLの魔導書でディザリングと出会う</text>
+
+          <!-- 仮説ボックス -->
+          <rect x="0" y="148" width="380" height="50" rx="6" fill="#141e28" stroke="#2a3a50" stroke-width="0.5"/>
+          <text x="12" y="166" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#6ab0e0">仮説</text>
+          <text x="12" y="183" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#b0c8e0">VAT の波形変形 ＋ ディザリングのドット調表現なら</text>
+          <text x="12" y="196" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#b0c8e0">→ 流体に似た映像効果を低負荷で実現できるのでは？</text>
+
+          <!-- ↓ 検証 -->
+          <line x1="190" y1="198" x2="190" y2="222" stroke="#4bc8a8" stroke-width="1" marker-end="url(#a1)"/>
+
+          <!-- 採用 -->
+          <rect x="0" y="224" width="380" height="52" rx="6" fill="#132218" stroke="#2a7050" stroke-width="1"/>
+          <text x="12" y="242" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#4bc8a8">採用</text>
+          <text x="12" y="258" font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#e0dbd5">VAT ＋ ディザリングで「疑似流体表現」を実装</text>
+          <text x="12" y="272" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#6aaa8a">GPU負荷を最小化しつつリアルタイムゲームへの転用が可能</text>
+
+          <!-- 方針との整合 -->
+          <rect x="0" y="292" width="380" height="24" rx="4" fill="#1a1e10" stroke="#4a4a20" stroke-width="0.5"/>
+          <text x="190" y="308" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9.5" fill="#c8a84b">「低負荷でリアルタイムゲームに使える表現技術を持つ」という制作方針とも一致</text>
+        </svg>
+      </div>
+
+      <!-- 縦区切り -->
+      <div style="background:var(--border);width:1px;align-self:stretch;"></div>
+
+      <!-- 右：VATの仕組み概要図 -->
+      <div>
+        <div style="font-size:10px;color:var(--muted);margin-bottom:6px;letter-spacing:.5px;">VATの仕組み（なぜ軽いのか）</div>
+        <svg width="100%" viewBox="0 0 400 340" style="display:block;">
+          <defs>
+            <marker id="a2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+          </defs>
+
+          <!-- 流体シミュレーション（重い） -->
+          <rect x="0" y="0" width="175" height="80" rx="6" fill="#2a1a1a" stroke="#5a3030" stroke-width="0.5"/>
+          <text x="88" y="18" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#c84b6a">流体シミュレーション</text>
+          <text x="88" y="34" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="9" fill="#8a6a6a">毎フレーム 物理計算</text>
+          <text x="88" y="49" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="9" fill="#8a6a6a">圧力・粘性・衝突</text>
+          <text x="88" y="64" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#7a5050">CPU/GPU 両方に高負荷</text>
+          <text x="88" y="76" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#c84b6a">✕ リアルタイムに不向き</text>
+
+          <!-- VAT（軽い） -->
+          <rect x="185" y="0" width="175" height="80" rx="6" fill="#132218" stroke="#2a5038" stroke-width="1"/>
+          <text x="272" y="18" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#4bc8a8">VAT（採用）</text>
+          <text x="272" y="34" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="9" fill="#6aaa8a">変位を事前計算して</text>
+          <text x="272" y="49" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="9" fill="#6aaa8a">テクスチャに焼き込む</text>
+          <text x="272" y="64" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#4a9a7a">サンプリングのみ → 軽量</text>
+          <text x="272" y="76" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#4bc8a8">✓ リアルタイム対応</text>
+
+          <!-- VATの流れ -->
+          <line x1="272" y1="80" x2="272" y2="106" stroke="#4bc8a8" stroke-width="1" marker-end="url(#a2)"/>
+
+          <!-- CPU側：テクスチャ生成 -->
+          <rect x="100" y="108" width="260" height="44" rx="6" fill="#1a1f2a" stroke="#2a3040" stroke-width="0.5"/>
+          <text x="230" y="126" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="10" fill="#d2a8ff">CPU：サインテーブル → RGBA_Float テクスチャ</text>
+          <text x="230" y="142" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#8a8aaa">行=フレーム / 列=頂点ID の2次元配置</text>
+
+          <!-- ↓ -->
+          <line x1="230" y1="152" x2="230" y2="174" stroke="#5a5a6a" stroke-width="1" marker-end="url(#a2)"/>
+
+          <!-- GPU：頂点シェーダー -->
+          <rect x="100" y="176" width="260" height="44" rx="6" fill="#141e28" stroke="#2a3a50" stroke-width="0.5"/>
+          <text x="230" y="194" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="10" fill="#6ab0e0">VS：SV_VertexID × frame でサンプリング</text>
+          <text x="230" y="210" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#5a8aaa">vat.w × amp → 頂点Y座標に加算</text>
+
+          <!-- ↓ -->
+          <line x1="230" y1="220" x2="230" y2="242" stroke="#5a5a6a" stroke-width="1" marker-end="url(#a2)"/>
+
+          <!-- 音声制御 -->
+          <rect x="100" y="244" width="260" height="44" rx="6" fill="#1a1e14" stroke="#3a5030" stroke-width="0.5"/>
+          <text x="230" y="262" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="10" fill="#a0c060">音量(RMS) → amp → 波の高さ</text>
+          <text x="230" y="278" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="10" fill="#a0c060">ピッチ(Hz) → speed → 波の速さ</text>
+
+          <!-- ↓ ディザ -->
+          <line x1="230" y1="288" x2="230" y2="308" stroke="#4bc8a8" stroke-width="1" marker-end="url(#a2)"/>
+          <rect x="100" y="310" width="260" height="24" rx="4" fill="#132218" stroke="#2a5038" stroke-width="0.5"/>
+          <text x="230" y="326" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9.5" fill="#4bc8a8">発声中のみ ディザリング ＋ HSVレインボーが発動</text>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+  <div class="page-num">2 / 4</div>
+</div>
+
+<!-- ===== PAGE 3: 技術選択の経緯② ===== -->
+<div class="slide" style="min-height:580px;">
+  <div class="slide-header">
+    <div class="title-block">
+      <div class="title">AdvancedVAT</div>
+      <div class="subtitle">音声入力を用いたリアルタイム頂点アニメーション表現の探求</div>
+    </div>
+    <div class="meta">
+      <div class="meta-icons">
+        <span class="lang-badge lang-cpp">C++</span>
+        <span class="lang-badge lang-hlsl">HLSL</span>
+        <span class="lang-badge lang-vs">VS</span>
+      </div>
+      制作期間：約1ヶ月<br>
+      制作時期：2025/12〜2026/01<br>
+      個人制作
+    </div>
+  </div>
+
+  <div class="section-label">技術選択の経緯</div>
+
+  <div class="content">
+    <div style="display:grid;grid-template-columns:1fr 1px 1fr;gap:0 14px;align-items:start;">
+
+      <!-- 左：ディザリング音声連動 -->
+      <div>
+        <div class="decision-title" style="margin-bottom:10px;">② ディザリング ── なぜ音と連動させたのか</div>
+        <svg width="100%" viewBox="0 0 400 290" style="display:block;">
+          <defs>
+            <marker id="a3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+          </defs>
+
+          <!-- VAT単体の問題 -->
+          <rect x="0" y="0" width="380" height="44" rx="6" fill="#2a1e1e" stroke="#5a3030" stroke-width="0.5"/>
+          <text x="12" y="17" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#c84b6a">問題：VAT のみでは動いているかわかりにくい</text>
+          <text x="12" y="33" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#8a6a6a">静止時と発声時の違いが視覚的に伝わらない → メリハリがない</text>
+
+          <!-- ↓ -->
+          <line x1="190" y1="44" x2="190" y2="66" stroke="#5a5a6a" stroke-width="1" marker-end="url(#a3)"/>
+
+          <!-- 意図 -->
+          <rect x="0" y="68" width="380" height="52" rx="6" fill="#141e28" stroke="#2a3a50" stroke-width="0.5"/>
+          <text x="12" y="86" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#6ab0e0">意図：音がある ⇔ ない をディザで視覚化する</text>
+          <text x="12" y="102" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#b0c0d0">音が鳴っている間だけドット格子を表示することで</text>
+          <text x="12" y="116" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#b0c0d0">「音で駆動している状態」であることを視覚で表現</text>
+
+          <!-- ↓ -->
+          <line x1="190" y1="120" x2="190" y2="142" stroke="#5a5a6a" stroke-width="1" marker-end="url(#a3)"/>
+
+          <!-- 無音 vs 発声 比較 -->
+          <rect x="0" y="144" width="175" height="56" rx="6" fill="#1e1e2a" stroke="#3a3a50" stroke-width="0.5"/>
+          <text x="88" y="162" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#7a7aaa">無音時</text>
+          <text x="88" y="178" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="9" fill="#6a6a8a">板ポリゴン静止</text>
+          <text x="88" y="193" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#6a6a8a">ディザなし（clip無効）</text>
+
+          <rect x="185" y="144" width="175" height="56" rx="6" fill="#132218" stroke="#2a5038" stroke-width="1"/>
+          <text x="272" y="162" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#4bc8a8">発声中</text>
+          <text x="272" y="178" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="9" fill="#6aaa8a">波形が動く ＋ ドット格子</text>
+          <text x="272" y="193" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#4a9a7a">音量↑ = セル細かく・隙間大</text>
+
+          <!-- ↓ -->
+          <line x1="190" y1="200" x2="190" y2="222" stroke="#4bc8a8" stroke-width="1" marker-end="url(#a3)"/>
+
+          <!-- 実装 -->
+          <rect x="0" y="224" width="380" height="44" rx="6" fill="#141814" stroke="#2a3020" stroke-width="0.5"/>
+          <text x="190" y="242" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="10" fill="#a0c060">SquareDotMask() → clip(m - 0.5)</text>
+          <text x="190" y="258" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#7a9a6a">ditherStrength を cameraPos.w に詰めて PS へ転送（CBV流用）</text>
+        </svg>
+      </div>
+
+      <!-- 縦区切り -->
+      <div style="background:var(--border);width:1px;align-self:stretch;"></div>
+
+      <!-- 右：HSVレインボー -->
+      <div>
+        <div class="decision-title" style="margin-bottom:10px;">③ HSVレインボー ── なぜ RGB でなく HSV を使ったのか</div>
+        <svg width="100%" viewBox="0 0 400 290" style="display:block;">
+          <defs>
+            <marker id="a4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+          </defs>
+
+          <!-- RGB問題 -->
+          <rect x="0" y="0" width="175" height="80" rx="6" fill="#2a1a1a" stroke="#5a3030" stroke-width="0.5"/>
+          <text x="88" y="18" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#c84b6a">RGBで色相だけを変えると…</text>
+          <text x="88" y="34" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="9" fill="#8a6a6a">R↑ G↑ → 黄色ではない</text>
+          <text x="88" y="49" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="9" fill="#8a6a6a">彩度・明度も連動変化</text>
+          <text x="88" y="64" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#8a6060">にじむ・灰色になる</text>
+          <text x="88" y="76" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#c84b6a">→ 色相単独制御が困難</text>
+
+          <!-- HSVメリット -->
+          <rect x="185" y="0" width="175" height="80" rx="6" fill="#132218" stroke="#2a5038" stroke-width="1"/>
+          <text x="272" y="18" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#4bc8a8">HSV を使うと…</text>
+          <text x="272" y="34" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="9" fill="#6aaa8a">H = 色相（独立制御）</text>
+          <text x="272" y="49" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="9" fill="#6aaa8a">S = 彩度 → 音量に割当</text>
+          <text x="272" y="64" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="9" fill="#6aaa8a">V = 明度 → 音量に割当</text>
+          <text x="272" y="76" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#4bc8a8">→ 滑らかなレインボー</text>
+
+          <!-- ↓ -->
+          <line x1="272" y1="80" x2="272" y2="106" stroke="#4bc8a8" stroke-width="1" marker-end="url(#a4)"/>
+
+          <!-- 音声パラメータの割当 -->
+          <rect x="60" y="108" width="300" height="60" rx="6" fill="#1a1f2a" stroke="#2a3040" stroke-width="0.5"/>
+          <text x="210" y="126" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#d0d0e0">音声パラメータの割り当て</text>
+          <text x="100" y="144" text-anchor="start" font-family="'Share Tech Mono',monospace" font-size="9" fill="#c8a84b">WorldPos × time → H（色相）</text>
+          <text x="100" y="158" text-anchor="start" font-family="'Share Tech Mono',monospace" font-size="9" fill="#6ab0e0">ditherStrength  → S・V（彩度・明度）</text>
+
+          <!-- ↓ -->
+          <line x1="210" y1="168" x2="210" y2="190" stroke="#5a5a6a" stroke-width="1" marker-end="url(#a4)"/>
+
+          <!-- 結果 -->
+          <rect x="60" y="192" width="300" height="50" rx="6" fill="#141e28" stroke="#2a3a50" stroke-width="0.5"/>
+          <text x="210" y="210" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#6ab0e0">位置と時間で色相が流れ</text>
+          <text x="210" y="226" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#6ab0e0">喋るたびに彩度・明度が上がる</text>
+          <text x="210" y="238" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#5a8aaa">→ 声が視覚に「乗る」プロシージャルな体験</text>
+
+          <!-- 注記 -->
+          <rect x="0" y="260" width="390" height="22" rx="4" fill="#1a1e10" stroke="#4a4020" stroke-width="0.5"/>
+          <text x="195" y="275" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9.5" fill="#c8a84b">単色より音声との同期変化との相性が良く、音の動きが視覚的にわかりやすい</text>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+  <div class="page-num">3 / 4</div>
+</div>
+
+<!-- ===== PAGE 4: Script ===== -->
+<div class="slide" style="min-height:720px;">
+  <div class="slide-header">
+    <div class="title-block">
+      <div class="title">AdvancedVAT</div>
+      <div class="subtitle">音声入力を用いたリアルタイム頂点アニメーション表現の探求</div>
+    </div>
+    <div class="meta">
+      <div class="meta-icons">
+        <span class="lang-badge lang-cpp">C++</span>
+        <span class="lang-badge lang-hlsl">HLSL</span>
+        <span class="lang-badge lang-vs">VS</span>
+      </div>
+      制作期間：約1ヶ月<br>
+      制作時期：2025/12〜2026/01<br>
+      個人制作
+    </div>
+  </div>
+
+  <div class="section-label">Script</div>
+
+  <div class="content">
+
+    <!-- ① 音声解析 -->
+    <div class="script-section">
+      <div class="script-label">① リアルタイム音声解析  ─  VAT_demo.cpp（VATAudio）</div>
+      <div class="script-comment">
+        WinMM コールバックで RMS（音量）とゼロクロス数（ピッチ推定）を計算し std::atomic に書き込む。
+        描画ループはロックなしで最新値を読む。Update() で線形補間（smooth=0.15）してガクガクを防ぐ。
+      </div>
+<pre><span class="c-cmt">// コールバック内：バッファが埋まるたびに呼ばれる</span>
+<span class="c-kw">static void</span> CALLBACK <span class="c-fn">WaveInProc</span>(...) {
+    <span class="c-kw">const int16_t</span>* samples = (<span class="c-kw">const int16_t</span>*)hdr->lpData;
+<span class="c-hl">    <span class="c-cmt">// RMS（音量）</span></span>
+    <span class="c-kw">double</span> acc = <span class="c-num">0.0</span>;
+    <span class="c-kw">for</span> (<span class="c-kw">int</span> i=<span class="c-num">0</span>; i&lt;count; ++i) acc += (<span class="c-kw">double</span>)samples[i] * samples[i];
+    s_lastRms.store( (<span class="c-kw">float</span>)std::sqrt(acc/count) / <span class="c-num">32768.0f</span> );
+<span class="c-hl">    <span class="c-cmt">// ゼロクロス（ピッチ推定）</span></span>
+    hz = (<span class="c-kw">float</span>)crossings * kSampleRate / (<span class="c-num">2.0f</span> * count);
+    s_lastHz.store(hz);
+    waveInAddBuffer(hwi, hdr, <span class="c-kw">sizeof</span>(WAVEHDR)); <span class="c-cmt">// 再投入</span>
+}
+<span class="c-cmt">// 毎フレーム：スムージングして描画側に渡す</span>
+<span class="c-kw">static void</span> <span class="c-fn">Update</span>() {
+    <span class="c-kw">const float</span> smooth = <span class="c-num">0.15f</span>;
+<span class="c-hl">    s_amp.store(  Lerp(s_amp.load(),   RmsToAmp(s_lastRms.load()), smooth) );</span>
+<span class="c-hl">    s_speed.store(Lerp(s_speed.load(), HzToSpeed(s_lastHz.load()), smooth) );</span>
+}</pre>
+    </div>
+
+    <!-- ② VAT VS + ディザ PS -->
+    <div class="script-section">
+      <div class="script-label">② VAT 頂点シェーダー ＋ ディザ ─  vat_vs.hlsl / lighting_ps.hlsl</div>
+      <div class="script-comment">
+        VS は SV_VertexID × frame でテクスチャをサンプリングし amp で頂点 Y を動かす。
+        PS は ditherStrength（cameraPos.w 流用）で格子ドットマスクをかけ clip() で穴を開ける。
+      </div>
+<pre><span class="c-cmt">// vat_vs.hlsl</span>
+VS_OUTPUT <span class="c-fn">main</span>(<span class="c-str">float3</span> Pos : POSITION, <span class="c-str">uint</span> vid : SV_VertexID) {
+    <span class="c-kw">float4</span> vat = Vat.Load( <span class="c-str">int3</span>(min(vid, width-<span class="c-num">1</span>), frame, <span class="c-num">0</span>) );
+<span class="c-hl">    <span class="c-kw">float4</span> pos = <span class="c-str">float4</span>(Pos.x, Pos.y + vat.w * amp, Pos.z, <span class="c-num">1.0</span>); <span class="c-cmt">// 音量で振幅</span></span>
+    output.Normal = normalize(mul(<span class="c-str">float4</span>(vat.xyz, <span class="c-num">0</span>), World).xyz);
+    ...
+}
+<span class="c-cmt">// lighting_ps.hlsl（USE_TEXTURE==2）</span>
+<span class="c-kw">float</span> strength = saturate(CameraPos.w); <span class="c-cmt">// ditherStrength を w に流用</span>
+<span class="c-kw">if</span> (strength > <span class="c-num">0.001</span>) {
+<span class="c-hl">    <span class="c-kw">float</span> m = <span class="c-fn">SquareDotMask</span>(input.Position.xy, cellPx, dotRatio, scrollPx);</span>
+<span class="c-hl">    <span class="c-fn">clip</span>(m - <span class="c-num">0.5</span>); <span class="c-cmt">// ドット外のピクセルを破棄</span></span>
+}
+<span class="c-cmt">// HSV → RGB でレインボーカラー</span>
+<span class="c-kw">float</span> hue = frac(input.WorldPos.x * <span class="c-num">0.08</span> + timeSec * <span class="c-num">0.10</span>);
+<span class="c-kw">float3</span> baseCol = <span class="c-fn">HSVtoRGB</span>(<span class="c-str">float3</span>(hue, sat + strength*<span class="c-num">0.05</span>, val + strength*<span class="c-num">0.05</span>));</pre>
+    </div>
+
+    <!-- ③ JunkShooting から発展した音声設計 -->
+    <div class="script-section">
+      <div class="script-label">③ JunkShooting からの発展  ─  音声設計の変化</div>
+      <div class="script-comment">
+        JunkShooting：Python外部実行 → txtファイル → C++読み込み（1〜3秒レイテンシ）<br>
+        AdvancedVAT ：WinMM コールバック → atomic → 描画ループ直読み（フレームレベルで同期）
+      </div>
+<pre><span class="c-cmt">// JunkShooting（前作）の方式 ─ レイテンシが課題だった</span>
+<span class="c-cmt">// CreateProcessW → voice_output.txt → std::mutex で読み取り → 1〜3s ラグ</span>
+
+<span class="c-cmt">// AdvancedVAT（本作）─ WinMM コールバックで即時取得</span>
+waveInOpen(&s_hWaveIn, WAVE_MAPPER, &wf,
+<span class="c-hl">    (<span class="c-str">DWORD_PTR</span>)&VATAudio::WaveInProc, <span class="c-num">0</span>, CALLBACK_FUNCTION); <span class="c-cmt">// 非同期コールバック</span></span>
+<span class="c-cmt">// 描画ループ側：lockなし、1行で最新値を取得</span>
+<span class="c-kw">const float</span> amp   = Scene::<span class="c-fn">GetVATAmp</span>();   <span class="c-cmt">// atomic.load()</span>
+<span class="c-kw">const float</span> speed = Scene::<span class="c-fn">GetVATSpeed</span>(); <span class="c-cmt">// atomic.load()</span></pre>
+    </div>
+
+  </div>
+  <div class="page-num">4 / 4</div>
+</div>
+
+</div>
+</body>
+</html>
